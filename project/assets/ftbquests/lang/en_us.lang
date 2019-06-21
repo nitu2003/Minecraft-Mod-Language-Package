@@ -62,6 +62,7 @@ ftbquests.file.emergency_items_cooldown.tooltip=Cooldown timer for emergency ite
 ftbquests.file.defaults=Defaults
 ftbquests.file.defaults.reward_team=Reward 'Team Reward'
 ftbquests.file.defaults.consume_items=Task 'Consume Items'
+ftbquests.file.defaults.autoclaim_rewards=Reward 'Auto-claim'
 ftbquests.file.defaults.quest_shape=Quest Shape
 ftbquests.file.drop_loot_crates=Entities Drop Loot Crates
 ftbquests.file.loot_crate_no_drop=Entity Loot Crate Drop Empty Weight
@@ -76,7 +77,8 @@ ftbquests.chapter=Chapter
 ftbquests.chapters=Chapters
 ftbquests.chapter.completed=Chapter completed!
 ftbquests.chapter.description=Description
-ftbquests.chapter.visibility=Visibility [WIP!]
+ftbquests.chapter.always_invisible=Always Invisible
+ftbquests.chapter.group=Group
 
 ftbquests.quest=Quest
 ftbquests.quests=Quests
@@ -84,6 +86,7 @@ ftbquests.quest.completed=Quest completed!
 ftbquests.quest.description=Description
 ftbquests.quest.x=X
 ftbquests.quest.y=Y
+ftbquests.quest.hide=Hide Quest Until Dependencies are Visible
 ftbquests.quest.shape=Shape
 ftbquests.quest.shape.circle=Circle
 ftbquests.quest.shape.square=Square
@@ -93,14 +96,23 @@ ftbquests.quest.shape.pentagon=Pentagon
 ftbquests.quest.shape.hexagon=Hexagon
 ftbquests.quest.shape.octagon=Octagon
 ftbquests.quest.shape.heart=Heart
-ftbquests.quest.visibility=Visibility [WIP!]
+ftbquests.quest.shape.gear=Gear
 ftbquests.quest.text=Text
 ftbquests.quest.can_repeat=Can be repeated
 ftbquests.quest.tasks_ignore_dependencies=Tasks Ignore Dependencies
 ftbquests.quest.tasks_ignore_dependencies.tooltip=Allow to start tasks without completing dependencies
+ftbquests.quest.dependency_requirement=Dependency Requirement
+ftbquests.quest.dependency_requirement.tooltip=Ignored if Min Required Dependencies > 0
+ftbquests.quest.dependency_requirement.all_completed=All Completed
+ftbquests.quest.dependency_requirement.one_completed=One Completed
+ftbquests.quest.dependency_requirement.all_started=All Started
+ftbquests.quest.dependency_requirement.one_started=One Started
 ftbquests.quest.guide_page=Guide Page
 ftbquests.quest.custom_click=Custom Click
 ftbquests.quest.hide_dependency_lines=Hide Dependency Lines
+ftbquests.quest.min_required_dependencies=Min Required Dependencies
+ftbquests.quest.min_required_dependencies.tooltip=If you set this to anything more than 0, it becomes an OR quest, where only certain amount of dependencies is required for it to unlock
+ftbquests.quest.hide_text_until_complete=Hide Text Until Quest is Completed
 
 ftbquests.gui.edit_file=Edit File
 ftbquests.gui.save_as_file=Save as File
@@ -122,19 +134,16 @@ ftbquests.gui.no_tasks=No tasks
 ftbquests.gui.no_rewards=No rewards
 ftbquests.gui.requires=Requires
 ftbquests.gui.required_by=Required by
-ftbquests.gui.unclaimed_rewards=Unclaimed rewards
+ftbquests.gui.collect_rewards=Collect rewards: %s
 ftbquests.gui.times_completed=Times completed
-ftbquests.gui.quick_complete=Quick Complete
-ftbquests.gui.quick_complete.info_1=Submit all items
-ftbquests.gui.quick_complete.info_2=Claim all rewards
-ftbquests.gui.patreon=Like this mod? Consider supporting me on Patreon!
+ftbquests.gui.subscribe=Like this mod? Consider supporting me on twitch.tv!
 ftbquests.gui.looping_dependencies=Looping dependencies!
-ftbquests.gui.open_in_guide=Open in Guide
+ftbquests.gui.open_in_guide=Click here to read more...
 
 ftbquests.task=Task
 ftbquests.tasks=Tasks
 ftbquests.task.completed=Task completed!
-ftbquests.task.click_to_submit=Click to submit items
+ftbquests.task.click_to_submit=Click to submit
 ftbquests.task.auto_detected=Items will be auto-detected
 ftbquests.task.click_to_submit_all=Click to submit all items
 ftbquests.task.max_input=Max Input
@@ -147,7 +156,11 @@ ftbquests.task.ftbquests.item.ignore_damage=Ignore Damage
 ftbquests.task.ftbquests.item.nbt_mode=NBT Mode
 ftbquests.task.ftbquests.item.consume_true=Consumes item
 ftbquests.task.ftbquests.item.consume_false=Doesn't consume item
+ftbquests.task.ftbquests.item.hide_valid_items=Hide Valid Items
 ftbquests.task.ftbquests.item.valid_items=Valid items:
+ftbquests.task.ftbquests.item.view_items=Click to view valid items
+ftbquests.task.ftbquests.item.valid_for=Valid items for %s
+ftbquests.task.ftbquests.item.click_recipe=Click to view recipe(s)
 
 ftbquests.task.ftbquests.fluid=Fluid
 ftbquests.task.ftbquests.fluid.fluid=Fluid
@@ -159,6 +172,9 @@ ftbquests.task.ftbquests.forge_energy.value=FE / RF
 ftbquests.task.ftbquests.forge_energy.text=%d FE
 
 ftbquests.task.ftbquests.xp=XP Levels
+ftbquests.task.ftbquests.xp.value=XP
+ftbquests.task.ftbquests.xp.points=Points
+ftbquests.task.ftbquests.xp.points.tooltip=Use XP points to complete instead of levels. Use a calculator to find out what the value should be
 ftbquests.task.ftbquests.dimension=Visit Dimension
 
 ftbquests.task.ftbquests.stat=Stat
@@ -168,6 +184,7 @@ ftbquests.task.ftbquests.stat.value=Value
 ftbquests.task.ftbquests.kill=Kill Entity
 ftbquests.task.ftbquests.kill.entity=Entity Name
 ftbquests.task.ftbquests.kill.value=Count
+ftbquests.task.ftbquests.kill.title=Kill: %sx %s
 
 ftbquests.task.ftbquests.location=Location
 ftbquests.task.ftbquests.location.dim=Dimension
@@ -180,6 +197,7 @@ ftbquests.task.ftbquests.location.h=H
 ftbquests.task.ftbquests.location.d=D
 
 ftbquests.task.ftbquests.checkmark=Checkmark
+ftbquests.task.ftbquests.advancement=Advancement
 
 ftbquests.task.ftbquests.buildcraft_mj=BuildCraft Energy
 ftbquests.task.ftbquests.buildcraft_mj.value=mJ
@@ -196,10 +214,13 @@ ftbquests.task.ftbquests.botania_mana.text=%d Mana
 
 ftbquests.task.ftbquests.emc=EMC
 
+ftbquests.task.ftbquests.gamestage=Game Stage
+
 ftbquests.reward=Reward
 ftbquests.rewards=Rewards
 ftbquests.reward.team_reward=Team Reward
 ftbquests.reward.emergency=Emergency Item
+ftbquests.reward.autoclaim=Auto-claim
 ftbquests.reward.claim_all=Claim All Rewards
 ftbquests.reward.collected=Reward Collected!
 ftbquests.reward.random_bonus=Random Bonus
@@ -207,12 +228,25 @@ ftbquests.reward.random_bonus=Random Bonus
 ftbquests.reward.ftbquests.item=Item
 ftbquests.reward.ftbquests.item.only_one=Only One
 ftbquests.reward.ftbquests.item.only_one.tooltip=If inventory has that item, doesn't give it. Ignores NBT.
+
 ftbquests.reward.ftbquests.choice=Choice Reward
 ftbquests.reward.ftbquests.random=Random Reward
 ftbquests.reward.ftbquests.loot=Loot Reward
+
 ftbquests.reward.ftbquests.xp=XP
 ftbquests.reward.ftbquests.xp_levels=XP Levels
+
 ftbquests.reward.ftbquests.command=Command
+
+ftbquests.reward.ftbquests.advancement=Advancement
+ftbquests.reward.ftbquests.advancement.criterion=Criterion
+ftbquests.reward.ftbquests.advancement.criterion.tooltip=Optional, set if you want only one criterion to be granted
+
+ftbquests.reward.ftbquests.toast=Toast
+ftbquests.reward.ftbquests.toast.description=Description
+
+ftbquests.reward.ftbquests.gamestage=Game Stage
+ftbquests.reward.ftbquests.gamestage.silent=Silent
 
 ftbquests.variable=Variable
 ftbquests.variable.max_value=Max Value

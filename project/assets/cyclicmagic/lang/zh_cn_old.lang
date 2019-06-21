@@ -35,6 +35,7 @@ button.fan.particles1=无粒子效果
 button.fan.pushpull.tooltip=切换作用方向
 button.fan.pushpull0=推
 button.fan.pushpull1=拉
+button.fan.sound.tooltip=切换声音开关
 button.fan.range.tooltip=作用范围
 button.fan.speed.tooltip=推拉速度
 button.harvester.mode.tooltip=范围收割会消耗较多的燃料来同时收割一大片的作物
@@ -151,6 +152,12 @@ entity.cyclicmagic.turretminecart.name=炮塔矿车
 fluid.milk=牛奶
 fluid.poison=毒液
 fluid.xpjuice=液态经验
+fluid.amber=琥珀
+tile.amber.name=琥珀
+fluid.biomass=生物质
+tile.biomass.name=生物质
+tile.crystal.name=黑曜石晶体
+fluid.crystal=黑曜石晶体
 gui.chatexp=没有足够的经验
 gui.enderbook.go=前往
 gui.enderbook.back=返回
@@ -487,7 +494,7 @@ item.tool_rotate.guide=它会尝试在不改变材质类型的同时旋转目标
 item.tool_rotate.name=木制扳手
 item.tool_rotate.tooltip=旋转能旋转的方块/机器
 item.tool_spawn_inspect.empty=这里没有什么可生成的生物
-item.tool_spawn_inspect.guide=告诉你你指向的方块上可以自然生成哪些生物，无视刷怪箱。可以被用于制作史莱姆、女巫和凋零骷髅刷怪厂。
+item.tool_spawn_inspect.guide=告诉你你指向的方块上可以自然生成哪些生物，无视刷怪箱。可以被用于制作史莱姆、女巫和凋灵骷髅农场。
 item.tool_spawn_inspect.name=生物生成探测杖
 item.tool_spawn_inspect.tooltip=检测某处会自然生成的生物（包括Mod生物、史莱姆以及凋灵骷髅）
 item.tool_spawn_inspect.up=点击方块顶部
@@ -496,10 +503,10 @@ item.tool_spelunker.name=洞穴探测杖
 item.tool_spelunker.tooltip=探测地下洞穴
 item.tool_swap.guide=将右击点击的方块与在物品栏中被选定的方块交换。
 item.tool_swap.name=标准方块替换杖
-item.tool_swap.tooltip=替换选择区域内的所有方块
+item.tool_swap.tooltip=替换选择区域内的所有方块和空气，左键单击以更改作用大小。
 item.tool_swap_match.guide=将右击点击的方块与物品栏中选定的方块交换，仅替换与点击区域的中心方块相同的方块。
 item.tool_swap_match.name=选择性方块替换杖
-item.tool_swap_match.tooltip=将物品栏中的方块与点击的方块替换。左键单击以更改作用大小
+item.tool_swap_match.tooltip=将物品栏中的方块与点击的方块替换。左键单击以更改作用大小。
 item.tool_torch_launcher.guide=投掷出一个飞行的火把，当火把着陆时它将会被放置。
 item.tool_torch_launcher.name=火把发射器
 item.tool_torch_launcher.tooltip=在它发射的火把着陆之地放置火把
@@ -589,6 +596,9 @@ teleport.dimension=不能跨维度
 tile.trash.name=虚空垃圾桶
 tile.trash.tooltip=销毁流体或物品
 tile.trash.guide=用漏斗或管道将物品/流体泵入此处来销毁流体或物品。
+button.trash.fluid.tooltip=接受并销毁流体
+button.trash.items.tooltip=接受并销毁物品
+tile.trash.warning=警告！这将删除所有物品！
 tile.auto_crafter.guide=自动合成设备，中间为合成表设置栏。左右两边为输入和输出槽。
 tile.auto_crafter.name=自动合成器
 tile.auto_crafter.tooltip=使用3x3合成表的自动合成器
@@ -846,9 +856,7 @@ tile.password_block.usersallowed.tooltip=谁可以用口令激发这个方块
 tile.placer_block.guide=简单的方块放置器，可以在世界上放置单个方块。
 tile.placer_block.name=方块放置机
 tile.placer_block.tooltip=可以用红石信号或红石钟令其在其前方放置方块
-tile.plate_launch.tooltip13=踩在上面可以跳8格高
-tile.plate_launch.tooltip18=踩在上面可以跳14格高
-tile.plate_launch.tooltip8=踩在上面可以跳3格高
+tile.plate_launch.tooltip=弹跳力度： 
 tile.plate_launch_large.guide=将实体弹向高空，对大部分实体（譬如：物品、经验球）均有作用。
 tile.plate_launch_large.name=硬化史莱姆弹跳板
 tile.plate_launch_med.guide=将实体弹向高空，对大部分实体（譬如：物品、经验球）均有作用。
@@ -856,6 +864,9 @@ tile.plate_launch_med.name=史莱姆弹跳板
 tile.plate_launch_small.guide=将实体发射到高空，对生物和非生物实体（譬如：掉落物品、经验球等）均有作用。
 tile.plate_launch_small.guide=将实体发射到高空，对生物和非生物实体（譬如：掉落物品、经验球等）均有作用。
 tile.plate_launch_small.name=软化史莱姆弹跳板
+
+tile.plate_launch_extra.guide=将实体发射到高空，对生物和非生物实体（譬如：掉落物品、经验球等）均有作用。
+tile.plate_launch_extra.name=终极史莱姆弹跳板
 
 tile.plate_push.guide=这是一个可以推动实体的传送带。它有四种类型，每种的运输速度都有所不同。它对大部分实体（譬如：玩家、物品、经验球）均有作用。可以使用扳手转向。
 tile.plate_push.name=传送带（普通）
@@ -984,8 +995,8 @@ world.endore.title=在末地生成的矿石
 world.netherore.guide=这些矿石均在下界生成，具体生成细节可在配置文件中修改。下界铁和下界金均直接掉落粒。
 world.netherore.title=在下界生成的矿石
 
-tile.hydrator.locked.tooltip=水化栏已被锁定；物品最小堆叠数为1
-tile.hydrator.unlocked.tooltip=水化栏已被解锁
+tile.hydrator.locked.tooltip=合成栏已被锁定；物品最小堆叠数为 1
+tile.hydrator.unlocked.tooltip=合成栏已被解锁
 
 energy.button.top=燃料条置于顶部
 energy.button.side=燃料条置于边侧
@@ -1007,7 +1018,7 @@ item.potion.ender.guide=让你能免疫使用末影珍珠传送的伤害
 item.potion.snow.guide=在你走过的地方留下雪的痕迹
 item.potion.levitation.guide=让你失去控制地漂浮起来
 item.potion.healthboost.guide=暂时提高你的最大生命值
-item.potion.saturation.guide=让你对食物一本满足
+item.potion.saturation.guide=让你处于饱腹状态
 item.potion.wither.guide=让你凋零
 item.potion.blindness.guide=让你失明
 
@@ -1269,9 +1280,9 @@ tile.target.name=红石靶子
 tile.target.tooltip=根据箭射中靶子的环数来发射红石信号
 tile.target.guide=根据箭射中靶子的环数来发射红石信号，只能在射中该方块的侧面时才能工作。
 
-tile.moon_sensor.name=月球位相传感器
-tile.moon_sensor.tooltip=会根据当前月球的位相来发射红石信号
-tile.moon_sensor.guide=会根据当前月球的位相来发射红石信号，可能的红石信号强度为1、3、5、7、9、11、13、15，在达到最大值后它会随着月球位相的改变而再次减弱。白天时会保持弱充能，到晚上时红石信号强度会随着月球位相的改变而改变。
+tile.moon_sensor.name=月相传感器
+tile.moon_sensor.tooltip=会根据当前月相来发射红石信号
+tile.moon_sensor.guide=会根据当前月相来发射红石信号，可能的红石信号强度为1、3、5、7、9、11、13、15，在达到最大值后它会随着月球位相的改变而再次减弱。白天时会保持弱充能，到晚上时红石信号强度会随着月球位相的改变而改变。
 
 item.robot_spawner.name=计数机器人生成器
 item.robot_spawner.tooltip=[实验性特性]通过它生成一个计数机器人来测量玩家造成的伤害
@@ -1299,7 +1310,7 @@ fire_starter.offset.tooltip=水平偏移
 fire_starter.firetype.button=切换火焰类型
 
 tile.fire_frost.name=冰冻火焰
-tile.fire_frost.tooltip=间歇地给予少量伤害和缓慢、虚弱的效果
+tile.fire_frost.tooltip=间歇地给予少量伤害和缓慢、虚弱效果
 tile.fire_frost.guide=间歇地给予少量伤害和缓慢、虚弱效果
 
 tile.void_anvil.name=虚空铁砧
@@ -1442,11 +1453,15 @@ extended.toolbelt=键可以在未打开物品栏时开启它
 
 tile.glass_strong.name=强化玻璃
 tile.glass_strong.tooltip=阻挡光照和爆炸
-tile.glass_strong.guide=用虚空属性调和过后的玻璃，可以阻挡光照和爆炸，阻挡的爆炸包括凋灵的爆炸
+tile.glass_strong.guide=用虚空属性调和过后的玻璃，可以阻挡光照和爆炸（包括凋灵）。
 
-item.crystallized_obsidian.name=黑曜石水晶
+item.crystallized_obsidian.name=黑曜石结晶
 item.crystallized_obsidian.tooltip=合成材料
-item.crystallized_obsidian.guide=用黑曜石混合制作的、作为合成材料的水晶。
+item.crystallized_obsidian.guide=用黑曜石混合制作的、作为合成材料的结晶。
+
+item.crystallized_amber.name=琥珀结晶
+item.crystallized_amber.tooltip=合成材料
+item.crystallized_amber.guide=由原材料、元素魔法和液态宝石混合制作而成的琥珀结晶，可作为合成材料。
 
 item.crystal_sword.name=黑曜石水晶之剑
 item.crystal_pickaxe.name=黑曜石水晶之镐
@@ -1458,12 +1473,18 @@ item.crystal_pickaxe.guide=黑曜石水晶之镐
 item.crystal_spade.guide=黑曜石水晶之锹
 item.crystal_axe.guide=黑曜石水晶之斧
 item.crystal_hoe.guide=黑曜石水晶之锄
-item.crystal_sword.tooltip=黑曜石水晶之剑
-item.crystal_pickaxe.tooltip=黑曜石水晶之镐
-item.crystal_spade.tooltip=黑曜石水晶之锹
-item.crystal_axe.tooltip=黑曜石水晶之斧
-item.crystal_hoe.tooltip=黑曜石水晶之锄
 
 tile.fluid_drain.name=流体收集机
 tile.fluid_drain.guide=收集在附近的流体（包含底部），在收集时会以方块替换流体
 tile.fluid_drain.tooltip=收集在附近的流体（包含底部），在收集时会以方块替换流体
+
+tile.melter.name=熔化炉
+tile.melter.guide=将固体熔化成流体，支持JEI和Crafttweaker。
+tile.melter.tooltip=放在熔岩上以融化物品
+
+button.fan.sound.tooltip=开启或关闭声音
+tile.heat.level=热量等级  
+
+tile.solidifier.name=冷凝炉
+tile.solidifier.guide=将流体冷凝成固体，支持JEI和Crafttweaker。
+tile.solidifier.tooltip=将流体冷凝成固体
